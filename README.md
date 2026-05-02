@@ -19,7 +19,7 @@ An Express microservice to dispatch critical alerts.
 ### 4. System Architecture Document
 - `notification_system_design.md` outlines the system design covering Scalability, Real-time, and Reliability .
 
-## 🚀 How to Run
+## How to Run
 
 1. **Setup**: Create a `.env` file at the root. 
 2. **Start the Scheduler Service**:
