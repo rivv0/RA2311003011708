@@ -1,0 +1,16 @@
+{
+  "name": "vehicle_maintenance_scheduler",
+  "version": "1.0.0",
+  "description": "Vehicle Maintenance Scheduler",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "dotenv": "^17.4.2",
+    "express": "^4.19.2",
+    "logging_middleware": "file:../logging_middleware",
+    "mongoose": "^8.3.2"
+  }
+}
