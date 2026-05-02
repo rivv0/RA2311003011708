@@ -1,0 +1,10 @@
+{
+  "name": "logging_middleware",
+  "version": "1.0.0",
+  "description": "Logging middleware",
+  "main": "logger.js",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "dotenv": "^17.4.2"
+  }
+}
