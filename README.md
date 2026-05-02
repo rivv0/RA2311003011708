@@ -1,16 +1,14 @@
-# Enterprise Backend Architecture (RA2311003011708)
 
-This repository contains the complete, production-grade backend architecture developed for the evaluation assignment. It strictly follows the "Backend Track" requirements, featuring centralized logging, highly optimized algorithms, and priority-based microservices.
 
-## 📁 Repository Structure & Stages
+## Repository Structure & Stages
 
 ### 1. Centralized Logging Middleware (`logging_middleware`)
-A custom NPM package that intercepts and securely logs all microservice events.
+It is a custom NPM package that intercepts and securely logs all microservice events. Some of the features added were:
 - **Auto-Refresh JWT Auth:** Uses pre-emptive token refreshing to completely eliminate `401 Unauthorized` errors and network retry latency.
 - **Fail-Silent Design:** Network errors during logging are safely swallowed to ensure the main microservices never crash.
 
 ### 2. Vehicle Maintenance Scheduler (`vehicle_maintenance_scheduler`)
-An Express microservice connected to MongoDB that manages vehicle servicing.
+A microservice connected to MongoDB that manages vehicle servicing.
 - **0/1 Knapsack Optimization (`scheduler.js` & `/services/optimize`)**: Uses a dynamic programming algorithm to select the perfect combination of vehicles to service, maximizing total `Impact` without exceeding the depot `MechanicHours` budget.
 - **MongoDB Optimization**: Uses B-Tree indexing (`{ index: true }`) on `vehicleId` and `serviceDate` to drop query time from $O(N)$ to $O(\log N)$.
 
@@ -19,11 +17,11 @@ An Express microservice to dispatch critical alerts.
 - **Priority Inbox (`priority_inbox.js`)**: Implements a custom **Min-Heap (Priority Queue)** data structure strictly bounded to 10 elements to maintain the top 10 highest-priority notifications. This guarantees lightning-fast $O(\log K)$ insertions based on composite scores (Weight + Timestamp) without ever needing to run expensive `.sort()` algorithms.
 
 ### 4. System Architecture Document
-- `notification_system_design.md` outlines the high-level system design covering Scalability (Kafka), Real-time (WebSockets), and Reliability (Redis).
+- `notification_system_design.md` outlines the system design covering Scalability, Real-time, and Reliability .
 
 ## 🚀 How to Run
 
-1. **Setup Credentials**: Create a `.env` file at the root. (Excluded from Git for security).
+1. **Setup**: Create a `.env` file at the root. 
 2. **Start the Scheduler Service**:
    ```bash
    cd vehicle_maintenance_scheduler
